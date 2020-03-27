@@ -10,7 +10,11 @@ export default StyleSheet.create({
     borderBottomColor: colors.GRAY,
   },
   containerInfo: {
-    flex: 1,
+    flex: 0.6,
+  },
+  containerValue: {
+    flex: 0.4,
+    alignItems: 'flex-end',
   },
   title: {
     color: colors.BLACK,
@@ -24,7 +28,7 @@ export default StyleSheet.create({
   },
   value: {
     color: colors.BLACK,
-    fontWeight: 'bold',
-    fontSize: fonts.TITLE,
+    fontWeight: '600',
+    fontSize: fonts.DESCRIPTION,
   }
 });
