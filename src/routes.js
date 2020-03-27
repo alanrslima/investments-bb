@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef } from './config/RootNavigation';
 
 import Investments from './pages/Investments';
+import colors from './styles/colors';
 
 const RootStack = createStackNavigator();
 function Routes() {
@@ -12,7 +13,23 @@ function Routes() {
       ref={navigationRef}
     >
       <RootStack.Navigator>
-        <RootStack.Screen name="Investments" component={Investments} />
+        <RootStack.Screen
+          options={{
+            title: 'Resgate',
+            headerTitleStyle: {
+              color: colors.WHITE,
+              fontSize: 20,
+            },
+            headerStyle: {
+              backgroundColor: colors.BLUE,
+              borderBottomColor: colors.YELLOW,
+              borderBottomWidth: 4,
+              height: 95,
+            }
+          }}
+          name="Investments"
+          component={Investments}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
