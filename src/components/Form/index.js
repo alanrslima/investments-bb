@@ -26,11 +26,11 @@ export default function Form({ action, onChange }) {
     <View style={styles.container}>
       <Tab
         title="Ação"
-        description={action.nome}
+        description={action && action.nome}
       />
       <Tab
         title="Saldo acumulado"
-        description={action.formatedValue}
+        description={action && action.formatedValue}
       />
       <View style={styles.containerInput}>
         <Text style={styles.titleInput}>Valor a resgatar</Text>

@@ -15,7 +15,7 @@ export default function Rescue({ route }) {
   const [total, setTotal] = useState(0);
   const [errorTotal, setErrorTotal] = useState('');
   const [actions, setActions] = useState([]);
-  const investment = route.params;
+  const investment = route && route.params;
   let flatListRef = null;
 
   useEffect(() => {
@@ -93,11 +93,11 @@ export default function Rescue({ route }) {
         />
         <Tab
           title="Nome"
-          description={investment.nome}
+          description={investment && investment.nome}
         />
         <Tab
           title="Saldo total disponível"
-          description={investment.formatedValue}
+          description={investment && investment.formatedValue}
         />
         <TitleBox
           title="RESGATE DO SEU JEITO"

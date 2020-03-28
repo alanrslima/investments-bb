@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Investments from '../src/pages/Investments';
+import Form from '../src/components/Form';
 
 
 test('renders correctly', () => {
-  const tree = renderer.create(<Investments />).toJSON();
+  const tree = renderer.create(<Form />).toJSON();
   expect(tree).toMatchSnapshot();
 });

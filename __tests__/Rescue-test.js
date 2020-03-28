@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Intro from '../src/pages/Rescue';
+import Rescue from '../src/pages/Rescue';
 
 
 test('renders correctly', () => {
-  const tree = renderer.create(<Intro />).toJSON();
+  const tree = renderer.create(<Rescue />).toJSON();
   expect(tree).toMatchSnapshot();
 });
