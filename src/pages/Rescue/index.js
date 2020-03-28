@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, KeyboardAvoidingView } from 'react-native';
+import {
+  KeyboardAvoidingView, Platform, Alert, FlatList
+} from 'react-native';
 
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import styles from './styles';
@@ -15,6 +17,7 @@ export default function Rescue({ route }) {
   const [errorTotal, setErrorTotal] = useState('');
   const [actions, setActions] = useState([]);
   const investment = route.params;
+  let flatListRef = null;
 
   useEffect(() => {
     setActions(route.params.acoes);
@@ -49,9 +52,43 @@ export default function Rescue({ route }) {
     }).format(total);
   }
 
-  return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <ScrollView style={styles.content}>
+  function doValidations() {
+    // Realiza a validação de valores a recuperar em cada ação
+    let invalidAction = null;
+    for (let i = 0; i < actions.length; i += 1) {
+      if ((actions[i].inputValue) && (actions[i].inputValue > actions[i].value)) {
+        invalidAction = actions[i];
+        break;
+      }
+    }
+    if (invalidAction) {
+      flatListRef.scrollToItem({ item: invalidAction });
+      return false;
+    }
+    // Verifica se nenhum valor a resgatar foi preenchido
+    // eslint-disable-next-line eqeqeq
+    if (total == 0) {
+      Alert.alert('Para confirmar o resgate, preeencha os valores que deseja resgatar.');
+      return false;
+    }
+    // Verifica se o valor total disponível é compatível com o valor total a resgatar
+    if (total > investment.saldoTotalDisponivel) {
+      Alert.alert('Você não pode resgatar um valor superior ao saldo total disponível');
+      return false;
+    }
+    return true;
+  }
+
+  function onPressConfirm() {
+    const valid = doValidations();
+    if (valid) {
+      setShowModal(true);
+    }
+  }
+
+  function renderHeader() {
+    return (
+      <>
         <TitleBox
           title="DADOS DO INVESTIMENTO"
         />
@@ -66,24 +103,39 @@ export default function Rescue({ route }) {
         <TitleBox
           title="RESGATE DO SEU JEITO"
         />
-        {investment.acoes.map((action) => (
+      </>
+    );
+  }
+
+  function renderFooter() {
+    return (
+      <Tab
+        containerStyle={{ marginBottom: 15 }}
+        title="Valor total a resgatar"
+        description={formatTotal()}
+        error={errorTotal}
+      />
+    );
+  }
+
+  return (
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : ''} style={styles.container}>
+      <FlatList
+        ref={(ref) => { flatListRef = ref; }}
+        ListHeaderComponent={renderHeader}
+        ListFooterComponent={renderFooter}
+        data={actions}
+        renderItem={({ item: action }) => (
           <Form
             onChange={onChange}
             action={action}
             key={action.id}
           />
-        ))}
-        <Tab
-          containerStyle={{ marginBottom: 15 }}
-          title="Valor total a resgatar"
-          description={formatTotal()}
-          error={errorTotal}
-        />
-
-      </ScrollView>
+        )}
+      />
       <Button
         text="CONFIRMAR RESGATE"
-        onPress={() => setShowModal(true)}
+        onPress={onPressConfirm}
         containerStyle={{ paddingBottom: getBottomSpace() + 15 }}
       />
       <ModalRescue
