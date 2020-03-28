@@ -13,7 +13,6 @@ function TitleBox({ title, subTitle }) {
   );
 }
 
-
 TitleBox.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,

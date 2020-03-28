@@ -9,7 +9,7 @@ import Loading from '../../components/Loading';
 import AlertBox from '../../components/AlertBox';
 
 
-export default function Investments() {
+export default function Investments({ navigation }) {
   const [investments, setInvestments] = useState([]);
   const [loading, setLoading] = useState([]);
   const [error, setError] = useState('');
@@ -59,12 +59,12 @@ export default function Investments() {
           )}
           data={investments}
           keyExtractor={(_, i) => `${i}`}
-          renderItem={({ item }) => (
+          renderItem={({ item: investment }) => (
             <Investment
-              title={item.nome}
-              onPress={() => { }}
-              description={item.objetivo}
-              value={item.formatedValue}
+              title={investment.nome}
+              onPress={() => navigation.navigate('Rescue', investment)}
+              description={investment.objetivo}
+              value={investment.formatedValue}
             />
           )}
         />

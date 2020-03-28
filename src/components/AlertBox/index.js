@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
 import * as Animatable from 'react-native-animatable';
 
 import styles from './styles';
 
-export default function AlertBox({ message }) {
+function AlertBox({ message }) {
   return (
     <Animatable.View
       animation="fadeInUp"
@@ -15,3 +16,9 @@ export default function AlertBox({ message }) {
     </Animatable.View>
   );
 }
+
+AlertBox.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+export default AlertBox;
