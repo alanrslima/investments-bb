@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   KeyboardAvoidingView, Platform, Alert, FlatList
 } from 'react-native';
-
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import styles from './styles';
 import TitleBox from '../../components/TitleBox';

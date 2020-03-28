@@ -30,5 +30,8 @@ export default StyleSheet.create({
     color: colors.BLACK,
     fontWeight: '600',
     fontSize: fonts.DESCRIPTION,
+  },
+  disabled: {
+    color: '#CCC'
   }
 });

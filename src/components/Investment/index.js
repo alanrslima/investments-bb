@@ -14,13 +14,13 @@ function Investment({
       disabled={disabled}
     >
       <View style={styles.containerInfo}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={[styles.title, disabled && styles.disabled]}>{title}</Text>
+        <Text style={[styles.description, disabled && styles.disabled]}>{description}</Text>
       </View>
       <View style={styles.containerValue}>
         <Text
           numberOfLines={1}
-          style={styles.value}
+          style={[styles.value, disabled && styles.disabled]}
         >
           {value}
         </Text>
