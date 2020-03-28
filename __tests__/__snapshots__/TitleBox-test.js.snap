@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 20,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#707070",
+        "fontSize": 15,
+        "fontWeight": "600",
+      }
+    }
+  >
+    INVESTIMENTO
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#707070",
+        "fontSize": 15,
+        "fontWeight": "600",
+      }
+    }
+  >
+    R$
+  </Text>
+</View>
+`;

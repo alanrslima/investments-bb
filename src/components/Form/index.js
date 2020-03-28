@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
+import PropTypes from 'prop-types';
 import Tab from '../Tab';
 import styles from './styles';
 
 
-export default function Form({ action, onChange }) {
+function Form({ action, onChange }) {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   let inputRef = null;
@@ -48,3 +49,16 @@ export default function Form({ action, onChange }) {
     </View>
   );
 }
+
+Form.propTypes = {
+  action: PropTypes.shape({
+    id: PropTypes.string,
+    formatedValue: PropTypes.string,
+    nome: PropTypes.string,
+    value: PropTypes.number,
+    percentual: PropTypes.number
+  }).isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default Form;

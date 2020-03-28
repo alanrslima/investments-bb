@@ -23,10 +23,12 @@ Tab.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   containerStyle: PropTypes.objectOf(PropTypes.number),
+  error: PropTypes.string,
 };
 
 Tab.defaultProps = {
   containerStyle: {},
+  error: '',
 };
 
 export default Tab;

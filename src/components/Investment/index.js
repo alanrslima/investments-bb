@@ -34,6 +34,11 @@ Investment.propTypes = {
   description: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Investment.defaultProps = {
+  disabled: false,
 };
 
 export default Investment;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "borderBottomColor": "#F4F4F4",
+      "borderBottomWidth": 2,
+      "flexDirection": "row",
+      "opacity": 1,
+      "padding": 20,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 0.6,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+          false,
+        ]
+      }
+    >
+      Investimento I
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#707070",
+            "fontSize": 15,
+            "marginTop": 2,
+          },
+          false,
+        ]
+      }
+    >
+      Minha aposentadoria
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "flex": 0.4,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 15,
+            "fontWeight": "600",
+          },
+          false,
+        ]
+      }
+    >
+      R$ 26.000,00
+    </Text>
+  </View>
+</View>
+`;
