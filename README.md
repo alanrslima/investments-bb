@@ -7,6 +7,8 @@
 
 A simple open source app created to simulate personalized redemption of equity investment funds. This project is for evaluation, and the requirements and business rules can be found in the following link: [https://github.com/leonardo-coopersystem/avaliacao-coopersystem/blob/master/README.md](https://github.com/leonardo-coopersystem/avaliacao-coopersystem/blob/master/README.md)
 
+![layout](https://i.imgur.com/ztnW9ZM.png)
+
 ---
 
 ## Getting started
@@ -35,7 +37,10 @@ or
 ```
 $ npm install
 ```
-
+* Now you need to run the IOS Pods with
+```
+$ cd ios/ && pod install && cd ..
+``` 
 * Finally, you can execute the project
 
 ```
