@@ -3,12 +3,17 @@ import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-function Tab({ title, description, containerStyle }) {
+function Tab({
+  title, description, containerStyle, error
+}) {
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <View style={styles.contentInfo}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+        </View>
+        {error ? <Text style={styles.textError}>{error}</Text> : null}
       </View>
     </View>
   );

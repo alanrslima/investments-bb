@@ -10,9 +10,11 @@ export default StyleSheet.create({
     paddingVertical: 15,
     borderBottomColor: colors.GRAY,
     borderBottomWidth: 2,
+    paddingRight: 20,
+  },
+  contentInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingRight: 20,
   },
   title: {
     color: colors.BLACK,
@@ -23,5 +25,10 @@ export default StyleSheet.create({
     color: colors.GRAY_DARK,
     fontWeight: '600',
     fontSize: fonts.TITLE,
+  },
+  textError: {
+    color: colors.RED,
+    marginTop: 5,
+    fontSize: 12
   }
 });

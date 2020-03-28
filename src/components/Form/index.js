@@ -5,7 +5,7 @@ import Tab from '../Tab';
 import styles from './styles';
 
 
-export default function Form({ action }) {
+export default function Form({ action, onChange }) {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   let inputRef = null;
@@ -18,6 +18,7 @@ export default function Form({ action }) {
       } else {
         setError('');
       }
+      onChange({ ...action, inputValue: value });
     }
   }, [input]);
 
