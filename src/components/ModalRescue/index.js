@@ -5,7 +5,7 @@ import Modal from 'react-native-modal';
 import styles from './styles';
 import Button from '../Button';
 
-export default function ModalRescue({ isVisible }) {
+export default function ModalRescue({ isVisible, onCancel }) {
   return (
     <Modal
       backdropOpacity={0.3}
@@ -20,7 +20,7 @@ export default function ModalRescue({ isVisible }) {
         </View>
         <Button
           text="NOVO RESGATE"
-          onPress={() => { }}
+          onPress={onCancel}
         />
       </View>
     </Modal>

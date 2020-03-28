@@ -5,5 +5,8 @@ export default StyleSheet.create({
   container: {
     backgroundColor: colors.GRAY,
     flex: 1,
+  },
+  content: {
+    flex: 1,
   }
 });

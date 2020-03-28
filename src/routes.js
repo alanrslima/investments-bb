@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { navigationRef } from './config/RootNavigation';
 
 import Investments from './pages/Investments';
 import Rescue from './pages/Rescue';
@@ -10,9 +9,7 @@ import colors from './styles/colors';
 const RootStack = createStackNavigator();
 function Routes() {
   return (
-    <NavigationContainer
-      ref={navigationRef}
-    >
+    <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Screen
           options={{

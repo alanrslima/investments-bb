@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-function Button({ text, onPress }) {
+function Button({ text, onPress, containerStyle }) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, containerStyle]} onPress={onPress}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
@@ -15,6 +15,11 @@ function Button({ text, onPress }) {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  containerStyle: PropTypes.objectOf(PropTypes.number)
+};
+
+Button.defaultProps = {
+  containerStyle: {}
 };
 
 export default Button;

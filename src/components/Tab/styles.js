@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../styles';
+import { colors, fonts } from '../../styles';
 
 export default StyleSheet.create({
   container: {
@@ -13,5 +13,15 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: 20,
+  },
+  title: {
+    color: colors.BLACK,
+    fontWeight: '600',
+    fontSize: fonts.TITLE,
+  },
+  description: {
+    color: colors.GRAY_DARK,
+    fontWeight: '600',
+    fontSize: fonts.TITLE,
   }
 });

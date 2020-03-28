@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 function Investment({
-  title, description, value, onPress
+  title, description, value, onPress, disabled
 }) {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={onPress}
+      disabled={disabled}
     >
       <View style={styles.containerInfo}>
         <Text style={styles.title}>{title}</Text>

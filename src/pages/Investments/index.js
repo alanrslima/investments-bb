@@ -22,12 +22,16 @@ export default function Investments({ navigation }) {
     try {
       setLoading(true);
       const res = await api.get('v2/5e76797e2f0000f057986099');
-      const data = res.data.response.data.listaInvestimentos.map((investment) => ({
-        ...investment,
-        formatedValue: Intl.NumberFormat('pt-BR', {
-          style: 'currency', currency: 'BRL'
-        }).format(investment.saldoTotalDisponivel)
-      }));
+      const data = res.data.response.data.listaInvestimentos.map((investment) => {
+        const actions = formatActiosData(investment.acoes, investment.saldoTotalDisponivel);
+        return {
+          ...investment,
+          formatedValue: Intl.NumberFormat('pt-BR', {
+            style: 'currency', currency: 'BRL'
+          }).format(investment.saldoTotalDisponivel),
+          acoes: actions,
+        };
+      });
       setInvestments(data);
       setLoading(false);
       setError('');
@@ -35,6 +39,19 @@ export default function Investments({ navigation }) {
       setError('Houve um problema ao buscar a lista de investimentos...');
       setLoading(false);
     }
+  }
+
+  function formatActiosData(actions, totalAvailable) {
+    return actions.map((action) => {
+      const value = (totalAvailable * (action.percentual / 100).toFixed(2));
+      return {
+        ...action,
+        value,
+        formatedValue: Intl.NumberFormat('pt-BR', {
+          style: 'currency', currency: 'BRL'
+        }).format(value),
+      };
+    });
   }
 
   function renderContent() {
@@ -61,6 +78,7 @@ export default function Investments({ navigation }) {
           keyExtractor={(_, i) => `${i}`}
           renderItem={({ item: investment }) => (
             <Investment
+              disabled={investment.indicadorCarencia === 'S'}
               title={investment.nome}
               onPress={() => navigation.navigate('Rescue', investment)}
               description={investment.objetivo}
